@@ -1,0 +1,343 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo header*/
+
+header h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+/* Estilo Inicio do Jogo*/
+
+.inicio-do-jogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 35px;
+
+    width: 600px;
+    padding: 100px;
+    height: 400px;
+
+    background-color: rgb(129, 140, 152);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #090909;
+}
+
+.text-jogo h2{
+    font-weight: 700;
+    font-size: 25px;
+    color: #e6f240;
+}
+
+
+.nome-do-jogador label {
+    width: 80px;
+    display: inline-block;
+
+  }
+
+  
+.nome-do-jogador input{
+    vertical-align: middle;
+    padding: 3px;
+    margin: 10px; 
+    width: 100px;
+    
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    box-shadow: 1px 1px 5px #090909;
+}
+
+.nome-do-jogador input:hover{
+    transition: 0.5s;
+    transform: scale(1.02);
+}
+
+button{
+    margin-top: 40px;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 6px #090909;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+button:hover{
+    transition: 0.5s;
+    background-color: #e6f240;
+    transform: scale(1.04);
+}
+
+
+/* Estilo do Jogo Da Memória*/
+
+section.jogo-da-memoria{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(129, 140, 152);
+    box-shadow: 0px 0px 10px #090909;
+    border-radius: 10px;
+    width: 900px;
+    
+}
+
+.area-do-jogo-memoria{
+    width: 700px;
+    height: 600px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cartas, .carta, .vista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartas{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cartas .carta{
+   cursor: pointer;
+   position: relative;
+   perspective: 800px;
+   transform-style: preserve-3d;
+   
+   height: calc(100% / 4 - 10px);
+   width: calc(100% / 4 - 10px);
+
+}
+
+.carta.agitar{
+    animation:agitar 0.35s ease-in-out;
+
+}
+
+@keyframes agitar{
+    0%, 100%{
+        
+
+    }
+    20%{
+        transform: translate(-13px);
+    }
+    40%{
+        transform: translate(13px);
+    }
+    60%{
+        transform: translate(-8px);
+    }
+    80%{
+        transform: translate(8px);
+    }
+}
+
+.cartas .carta .vista{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    background-color: rgb(130, 141, 152);
+    box-shadow: 0px 3px 10px #090909;
+    transition: transform 0.25s linear;
+}
+
+.carta .vista-frontal span{
+    font-size: 100px;
+}
+
+.carta .vista-fundo{
+   transform: rotateY(-180deg);   
+}
+
+.carta .vista-fundo img{
+    max-width: 80px;
+
+}
+
+.carta.virar .vista-frontal{
+    transform: rotateY(180deg); 
+
+}
+
+.carta.virar .vista-fundo{
+    transform: rotateY(0); 
+
+}
+
+.area-de-pontos{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.area-do-tempo{
+    width: 100%;
+    border-top: 3px solid #e6f240;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.tempo{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+
+.tempo h3{
+    font-size: 25px;
+}
+
+.contagem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.jogadores{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 5px;
+    gap: 30px;
+    font-size: 20px;
+}
+
+.area-nome{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.jogador1-vitorias, .jogador2-vitorias{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #090909;
+
+}
+
+.btns-do-jogo button{
+    margin-left: 10px;
+}
+
+.destacado {
+   border: 3px solid #e6f240;
+   box-shadow: 0px 0px 8px #e6f240;
+   
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.185); /* Cor de fundo com transparência */
+    justify-content: center; /* Centralizar conteúdo horizontalmente */
+    align-items: center; /* Centralizar conteúdo verticalmente */
+    z-index: 9999; /* Garante que a overlay fique sobreposta a tudo */
+}
+
+.mensagem {
+    display: flex;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.74);
+    width: 400px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    border: 2px solid #e6f240;
+    box-shadow: 0px 0px 5px #e6f240;
+    border-radius: 10px;
+}
+
+@media (max-width:800px) {
+    header h1{
+        font-size: 25px;
+    }
+    main{
+        padding: 0; 
+    }
+     .inicio-do-jogo{
+        width: 100vw;
+        border-radius: 0;
+    }
+
+    .carta .vista-frontal span{
+        font-size: 60px;
+    }
+
+    .text-jogo h2{
+        font-size: 18px;
+    }
+
+    .area-do-jogo-memoria{
+        width: 100vw;
+        height: 100vw;
+    }
+
+    section.jogo-da-memoria{
+        border-radius: 0;
+    }
+
+    
+  }
+
+
+
+
